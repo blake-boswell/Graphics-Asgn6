@@ -111,9 +111,10 @@ void display()
 					pixel.GetShade(hitPoint, hitNormal, pixelShade);
 					// save the pixel color to the image
 					pixelShade.clamp();
-					image[i][j][0] = pixelShade.R;
-					image[i][j][1] = pixelShade.G;
-					image[i][j][2] = pixelShade.B;
+					image[i][j][0] = (int)pixelShade.R;
+					image[i][j][1] = (int)pixelShade.G;
+					image[i][j][2] = (int)pixelShade.B;
+					// cout << "Phong Shades[" << i << "," << j << "]:\t" << pixelShade.R << "\t\t" << pixelShade.G << "\t\t" << pixelShade.B << endl;
 
 				}
 			}
@@ -123,13 +124,13 @@ void display()
 
 
 	// Display colorful square
-	for (int y = 100; y<700; y++)
+	/*for (int y = 100; y<700; y++)
 		for (int x = 100; x<700; x++)
 		{
 			image[y][x][0] = x * 255 / XDIM;
 			image[y][x][1] = y * 255 / YDIM;
 			image[y][x][2] = 0;
-		}
+		}*/
 
 	// Display image
 	glClear(GL_COLOR_BUFFER_BIT);
