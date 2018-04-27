@@ -120,18 +120,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\temp\classes2.cpp" />
-    <ClCompile Include="..\..\..\temp\classes2_test.cpp" />
-    <ClCompile Include="..\..\..\temp\phong2.cpp" />
-    <ClCompile Include="..\..\..\temp\phong2_test.cpp" />
-    <ClCompile Include="..\..\..\temp\ray_trace.cpp" />
+    <ClCompile Include="classes2.cpp" />
+    <ClCompile Include="classes2_test.cpp" />
+    <ClCompile Include="phong2.cpp" />
+    <ClCompile Include="phong2_test.cpp" />
+    <ClCompile Include="ray_trace.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\temp\classes2.h" />
-    <ClInclude Include="..\..\..\temp\phong2.h" />
+    <ClInclude Include="classes2.h" />
+    <ClInclude Include="phong2.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\temp\input.txt" />
+    <Text Include="input.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

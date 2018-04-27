@@ -15,32 +15,32 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\temp\classes2.cpp">
+    <ClCompile Include="classes2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\temp\classes2_test.cpp">
+    <ClCompile Include="classes2_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\temp\phong2.cpp">
+    <ClCompile Include="phong2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\temp\phong2_test.cpp">
+    <ClCompile Include="phong2_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\temp\ray_trace.cpp">
+    <ClCompile Include="ray_trace.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\temp\classes2.h">
+    <ClInclude Include="classes2.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\temp\phong2.h">
+    <ClInclude Include="phong2.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\temp\input.txt">
+    <Text Include="input.txt">
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>

@@ -29,7 +29,7 @@ void init()
 {
 	// Initialize OpenGL
 	glClearColor(0.0, 0.0, 0.0, 1.0);
-	
+
 
 	// Print command menu
 	cout << "Program commands:\n"
@@ -89,7 +89,7 @@ void display()
 			rayDirection.normalize();
 			Ray3D ray;
 			ray.set(rayOrigin, rayDirection);
-			
+
 			// Intersect ray with objects in the world
 			Point3D hitPoint;
 			Vector3D hitNormal;

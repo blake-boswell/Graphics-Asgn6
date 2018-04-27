@@ -39,4 +39,4 @@ private:
 	float Ka, Kd, Ks, Kp;
 };
 
-#endif
+#endif#pragma once
