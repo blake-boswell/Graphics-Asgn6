@@ -5,6 +5,7 @@
 // Date:    Spring 2018
 //---------------------------------------
 #include <math.h>
+#include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
 #ifdef MAC
@@ -35,6 +36,8 @@ void init()
 	cout << "Program commands:\n"
 		<< "   'q' - quit program\n";
 
+	srand(time(NULL));
+
 }
 
 //---------------------------------------
@@ -44,16 +47,30 @@ void display()
 {
 	// TO BE ADDED
 	// initialize Phong scene from input file
-	CONST int NUMSPHERES = 1;
+	CONST int NUMSPHERES = 3;
 	Sphere3D* spheres = new Sphere3D[NUMSPHERES];
-	Point3D sphereOrigin;
-	sphereOrigin.set(0, 0, 0);
-	float sphereRadius = 100;
-	spheres[0].set(sphereOrigin, sphereRadius);
-	ColorRGB sphereColor;
-	sphereColor.set(255, 0, 0);
+	for (int i = 0; i < NUMSPHERES; i++) {
+		int x = rand() % XDIM - 400;
+		int y = rand() % YDIM - 400;
+		int z = rand() % 200;
+		int sphereRadius = rand() % 100 + 50;
+		int r = rand() % 256;
+		int g = rand() % 256;
+		int b = rand() % 256;
+		float Ka = ((float)(rand() % 101) / 100);
+		float Kd = ((float)(rand() % 101) / 100);
+		float Ks = ((float)(rand() % 101) / 100);
+		float Kp = rand() % 16 + 1;
+		cout << x << " " << y << " " << Ka << " " << Kd << " " << Ks << " " << Kp << endl;
+		Point3D sphereOrigin;
+		sphereOrigin.set(x, y, z);
+		spheres[i].set(sphereOrigin, sphereRadius);
+		ColorRGB sphereColor;
+		sphereColor.set(r, g, b);
 
-	spheres[0].properties.set(sphereColor, .25, .707, .25, 5);
+		spheres[i].properties.set(sphereColor, Ka, Kd, Ks, Kp);
+	}
+	
 
 	// Phong scene;
 	Point3D cameraPosition;
@@ -61,7 +78,7 @@ void display()
 	ColorRGB lightColor;
 	cameraPosition.set(0, 0, -DISTANCE);
 	// scene.SetCamera(cameraPosition);
-	lightDirection.set(1, -1, 0);
+	lightDirection.set(1, -1, -1);
 	lightColor.set(255, 255, 255);
 	// scene.SetLight(lightColor, lightDirection);
 
