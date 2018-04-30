@@ -60,15 +60,18 @@ void display()
 		float Ka = ((float)(rand() % 101) / 100);
 		float Kd = ((float)(rand() % 101) / 100);
 		float Ks = ((float)(rand() % 101) / 100);
-		float Kp = rand() % 16 + 1;
-		cout << x << " " << y << " " << Ka << " " << Kd << " " << Ks << " " << Kp << endl;
+		float Kp = rand() % 7 + 5;
+		cout << x << " " << y << " " << z << " " << sphereRadius << " " << Ka << " " << Kd << " " << Ks << " " << Kp << endl;
 		Point3D sphereOrigin;
 		sphereOrigin.set(x, y, z);
 		spheres[i].set(sphereOrigin, sphereRadius);
 		ColorRGB sphereColor;
 		sphereColor.set(r, g, b);
+		
+			
 
 		spheres[i].properties.set(sphereColor, Ka, Kd, Ks, Kp);
+
 	}
 	
 
@@ -78,7 +81,7 @@ void display()
 	ColorRGB lightColor;
 	cameraPosition.set(0, 0, -DISTANCE);
 	// scene.SetCamera(cameraPosition);
-	lightDirection.set(1, -1, -1);
+	lightDirection.set(1, -1, 0);
 	lightColor.set(255, 255, 255);
 	// scene.SetLight(lightColor, lightDirection);
 
@@ -122,6 +125,22 @@ void display()
 					float sphereKd = spheres[k].properties.Kd;
 					float sphereKs = spheres[k].properties.Ks;
 					float sphereKp = spheres[k].properties.Kp;
+					// Check for shadows from other objects
+					Ray3D shadowRay;
+					shadowRay.set(hitPoint, lightDirection);
+					/*rayOrigin = hitPoint;
+					rayDirection.vx = (lightDirection.vx);
+					rayDirection.vy = (lightDirection.vy);
+					rayDirection.vz = (lightDirection.vz);
+					ray.set(rayOrigin, rayDirection);*/
+					Point3D shadowPoint;
+					Vector3D shadowNormal;
+					for (int m = 0; m < NUMSPHERES; m++) {
+						if (m != k && spheres[m].get_intersection(shadowRay, shadowPoint, shadowNormal)) {
+							sphereKd = sphereKs = 0;
+						}
+					}
+					
 					pixel.SetObject(sphereColor, sphereKa, sphereKd, sphereKs, sphereKp);
 					// Perform phong shading for the pixel
 					ColorRGB pixelShade;
