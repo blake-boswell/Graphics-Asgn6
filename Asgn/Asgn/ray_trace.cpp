@@ -34,7 +34,8 @@ void init()
 
 	// Print command menu
 	cout << "Program commands:\n"
-		<< "   'q' - quit program\n";
+		<< "   'q' - quit program\n"
+		<< "	Click in the window to refresh with new random spheres!\n";
 
 	srand(time(NULL));
 
@@ -61,7 +62,7 @@ void display()
 		float Kd = ((float)(rand() % 101) / 100);
 		float Ks = ((float)(rand() % 101) / 100);
 		float Kp = rand() % 7 + 5;
-		cout << x << " " << y << " " << z << " " << sphereRadius << " " << Ka << " " << Kd << " " << Ks << " " << Kp << endl;
+		// cout << x << " " << y << " " << z << " " << sphereRadius << " " << Ka << " " << Kd << " " << Ks << " " << Kp << endl;
 		Point3D sphereOrigin;
 		sphereOrigin.set(x, y, z);
 		spheres[i].set(sphereOrigin, sphereRadius);
@@ -128,11 +129,6 @@ void display()
 					// Check for shadows from other objects
 					Ray3D shadowRay;
 					shadowRay.set(hitPoint, lightDirection);
-					/*rayOrigin = hitPoint;
-					rayDirection.vx = (lightDirection.vx);
-					rayDirection.vy = (lightDirection.vy);
-					rayDirection.vz = (lightDirection.vz);
-					ray.set(rayOrigin, rayDirection);*/
 					Point3D shadowPoint;
 					Vector3D shadowNormal;
 					for (int m = 0; m < NUMSPHERES; m++) {
